@@ -1,6 +1,7 @@
 const makeChange = (cents) => {
-  // your name here
-	function makeChange(cents) {
+  // Convert input to a number in case it's passed as a string
+  let amount = parseInt(cents);
+
   const change = {
     q: 0,
     d: 0,
@@ -9,25 +10,24 @@ const makeChange = (cents) => {
   };
 
   // 1. Calculate quarters (25 cents)
-  change.q = Math.floor(cents / 25);
-  cents %= 25;
+  change.q = Math.floor(amount / 25);
+  amount %= 25;
 
   // 2. Calculate dimes (10 cents)
-  change.d = Math.floor(cents / 10);
-  cents %= 10;
+  change.d = Math.floor(amount / 10);
+  amount %= 10;
 
   // 3. Calculate nickels (5 cents)
-  change.n = Math.floor(cents / 5);
-  cents %= 5;
+  change.n = Math.floor(amount / 5);
+  amount %= 5;
 
   // 4. Remaining amount is pennies (1 cent)
-  change.p = cents;
+  change.p = amount;
 
   return change;
-}
 };
 
-// Do not the change the code below
+
+// Do not change the code below
 const c = prompt("Enter c: ");
 alert(JSON.stringify(makeChange(c)));
-
